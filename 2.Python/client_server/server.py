@@ -1,10 +1,10 @@
 import os,sys,socket
-
+from common import *
 #1) Createing socket
 s = socket.socket()
 
 #2) bind to the ip and port
-s.bind(("192.168.0.164", 6677))
+s.bind((IPADDR, PORT))
 
 #3) Listening
 s.listen(10)
@@ -13,8 +13,7 @@ s.listen(10)
 
 while True:
     c,c_ip = s.accept()
-    print("Client detaisl", c)
-    print(dir(c))
+    print("Client detaisl", c, c_ip)
     print(c.recv(1000))
     c.send("Hello")
     c.close()

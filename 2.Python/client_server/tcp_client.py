@@ -1,11 +1,12 @@
 import os,sys,socket
+from common import *
 
 #1) Creating socket
 
 s = socket.socket()
 
 #2) Connect to server
-s.connect(("192.168.0.164", 6677))
+s.connect((IPADDR, PORT))
 
 s.send("hello".encode("ASCII"))
 
